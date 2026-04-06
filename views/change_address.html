@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Address Manager</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eaf1ff",
+                        "surface": "#f4f6ff",
+                        "on-surface": "#203044",
+                        "background": "#f4f6ff",
+                        "secondary": "#006947",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "primary-fixed-dim": "#8387ff",
+                        "outline-variant": "#9eaec7",
+                        "on-secondary-fixed": "#00452d",
+                        "on-surface-variant": "#4d5d73",
+                        "tertiary-dim": "#714600",
+                        "error-container": "#f74b6d",
+                        "surface-tint": "#4647d3",
+                        "surface-bright": "#f4f6ff",
+                        "secondary-container": "#69f6b8",
+                        "on-secondary-container": "#005a3c",
+                        "inverse-primary": "#8083ff",
+                        "tertiary": "#815100",
+                        "outline": "#68788f",
+                        "primary": "#4647d3",
+                        "surface-container": "#dce9ff",
+                        "on-secondary-fixed-variant": "#006544",
+                        "secondary-fixed-dim": "#58e7ab",
+                        "on-tertiary-container": "#4a2c00",
+                        "on-tertiary": "#fff0e3",
+                        "on-background": "#203044",
+                        "error-dim": "#a70138",
+                        "on-tertiary-fixed-variant": "#563400",
+                        "surface-container-high": "#d2e4ff",
+                        "secondary-fixed": "#69f6b8",
+                        "primary-fixed": "#9396ff",
+                        "surface-dim": "#bdd6fc",
+                        "inverse-on-surface": "#8e9eb7",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-secondary": "#c8ffe0",
+                        "tertiary-fixed": "#f8a010",
+                        "secondary-dim": "#005c3d",
+                        "on-primary": "#f4f1ff",
+                        "on-primary-fixed": "#000000",
+                        "inverse-surface": "#000f21",
+                        "on-primary-container": "#0a0081",
+                        "tertiary-container": "#f8a010",
+                        "primary-container": "#9396ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#c9deff",
+                        "on-error-container": "#510017",
+                        "tertiary-fixed-dim": "#e79400",
+                        "on-error": "#ffefef",
+                        "surface-container-highest": "#c9deff",
+                        "error": "#b41340",
+                        "primary-dim": "#3939c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+    <header
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-outline-variant/10">
+        <div class="flex items-center justify-between px-6 h-20 w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-6">
+                <button id="page_back"
+                    class="p-2 -ml-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-indigo-600 dark:text-indigo-400">arrow_back</span>
+                </button>
+                <div class="flex flex-col">
+                    <span
+                        class="text-2xl font-black text-indigo-600 dark:text-indigo-400 tracking-tighter font-['Plus_Jakarta_Sans'] leading-tight">Address
+                        Manager</span>
+                    <span
+                        class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-widest -mt-1">Marketplace</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-24  px-4 max-w-5xl mx-auto">
+        <!-- Search Section -->
+        <section class="mb-8">
+            <div class="relative group">
+                <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-outline">
+                    <span class="material-symbols-outlined" data-icon="search">search</span>
+                </div>
+                <input
+                    class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none shadow-sm"
+                    placeholder="Search addresses, names, or tags..." type="text" />
+            </div>
+        </section>
+        <!-- Categories / Filters -->
+        <div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
+            <span
+                class="px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap">Home</span>
+            <span
+                class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap">Office</span>
+            <span
+                class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap">Pick-up
+                Point</span>
+            <span
+                class="px-4 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-xs font-bold tracking-wider uppercase whitespace-nowrap">Family</span>
+        </div>
+        <!-- Address List -->
+        <div class="space-y-4">
+            <div onclick="goToAddress()"
+                class="group relative overflow-hidden bg-white border-2 border-dashed border-gray-300 rounded-xl cursor-pointer transition-all hover:border-primary hover:shadow-lg">
+
+                <div class="p-6 flex flex-col items-center justify-center text-center gap-3">
+
+                    <!-- ICON PLUS -->
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">add</span>
+                    </div>
+
+                    <!-- TEXT -->
+                    <div>
+                        <h3 class="font-bold text-on-surface">Tambah Alamat Baru</h3>
+                        <p class="text-xs text-on-surface-variant mt-1">
+                            Tambahkan alamat pengiriman baru
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Address Card 1 -->
+            <div id="addressContainer"></div>
+
+        </div>
+    </main>
+    <!-- Floating Action Button -->
+    <button
+        class="fixed bottom-10 right-6 lg:hidden w-16 h-16 bg-gradient-to-br from-[#4647d3] to-[#9396ff] text-on-primary rounded-2xl flex items-center justify-center shadow-xl shadow-primary/40 active:scale-95 transition-transform z-40">
+        <span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+    </button>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+        function goToAddress() {
+            window.location.href = '/address/add';
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            let currentUser = null;
+
+            async function loadAuthMenu() {
+                try {
+                    const res = await fetch('/api/users/me', {
+                        credentials: 'include'
+                    });
+
+                    if (!res.ok) throw new Error('Not logged in');
+
+                    const user = await res.json();
+
+                    currentUser = user;
+                    loadAddress(user.id);
+
+                } catch (err) {
+                    console.log('User belum login');
+                }
+            }
+
+            function loadAddress(user_id) {
+                $.ajax({
+                    url: '/api/addresses/user/' + user_id,
+                    method: 'GET',
+                    success: function (res) {
+
+                        const container = $('#addressContainer');
+                        container.empty();
+
+                        if (!res.data || res.data.length === 0) {
+                            container.html('<p class="text-gray-400">Belum ada alamat</p>');
+                            return;
+                        }
+
+                        res.data.forEach(addr => {
+
+                            const badgeDefault = addr.is_default == 1
+                                ? `<span class="px-2 py-0.5 rounded bg-blue-100 text-blue-600 text-[10px] font-bold uppercase">Default</span>`
+                                : '';
+
+                            const isSelected = addr.is_default == 1
+                                ? 'border-blue-500 bg-blue-50'
+                                : 'border-transparent';
+
+                            const html = `
+                    <div class="addressCard cursor-pointer border-2 ${isSelected} bg-white rounded-xl shadow-sm hover:shadow-md transition mb-4"
+                         data-id="${addr.id}">
+                        
+                        <div class="p-5 flex gap-4">
+
+                            <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 text-primary">
+                                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">
+                                    home
+                                </span>
+                            </div>
+
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-800">
+                                    ${addr.fullname}
+                                </h3>
+
+                                <p class="text-sm text-gray-600 mt-1">
+                                    ${addr.address.replace(/\n/g, '<br>')}
+                                </p>
+
+                                <p class="text-xs text-gray-400 mt-1">
+                                    ${addr.phone}
+                                </p>
+
+                                <div class="flex items-center gap-2 mt-3">
+                                    ${badgeDefault}
+                                    <span class="px-2 py-0.5 rounded bg-gray-100 text-gray-600 text-[10px] font-semibold uppercase">
+                                        ${addr.label}
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    `;
+
+                            container.append(html);
+                        });
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+            // 🔥 CLICK SELECT
+            $(document).on('click', '.addressCard', function () {
+                const id = $(this).data('id');
+
+                $.ajax({
+                    url: '/api/addresses/' + id + '/default',
+                    method: 'PATCH',
+                    success: function () {
+
+                        $('.addressCard')
+                            .removeClass('border-blue-500 bg-blue-50')
+                            .addClass('border-transparent');
+
+                        $(`.addressCard[data-id="${id}"]`)
+                            .removeClass('border-transparent')
+                            .addClass('border-blue-500 bg-blue-50');
+
+                    }
+                });
+            });
+
+            loadAuthMenu();
+
+        });
+    </script>
+</body>
+
+</html>

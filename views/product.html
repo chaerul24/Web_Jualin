@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#fff0e3",
+                        "secondary-fixed": "#69f6b8",
+                        "secondary": "#006947",
+                        "on-secondary-container": "#005a3c",
+                        "inverse-on-surface": "#8e9eb7",
+                        "error": "#b41340",
+                        "on-primary": "#f4f1ff",
+                        "surface-container-low": "#eaf1ff",
+                        "primary-dim": "#3939c7",
+                        "outline": "#68788f",
+                        "tertiary-dim": "#714600",
+                        "on-surface-variant": "#4d5d73",
+                        "error-dim": "#a70138",
+                        "on-secondary-fixed-variant": "#006544",
+                        "surface-container-high": "#d2e4ff",
+                        "tertiary-container": "#f8a010",
+                        "on-primary-container": "#0a0081",
+                        "primary-fixed": "#9396ff",
+                        "primary": "#4647d3",
+                        "on-tertiary-container": "#4a2c00",
+                        "secondary-container": "#69f6b8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffefef",
+                        "on-tertiary-fixed": "#2a1700",
+                        "outline-variant": "#9eaec7",
+                        "tertiary-fixed-dim": "#e79400",
+                        "error-container": "#f74b6d",
+                        "on-error-container": "#510017",
+                        "inverse-primary": "#8083ff",
+                        "on-surface": "#203044",
+                        "primary-fixed-dim": "#8387ff",
+                        "on-secondary-fixed": "#00452d",
+                        "secondary-dim": "#005c3d",
+                        "on-tertiary-fixed-variant": "#563400",
+                        "primary-container": "#9396ff",
+                        "surface-container-highest": "#c9deff",
+                        "surface": "#f4f6ff",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "surface-variant": "#c9deff",
+                        "surface-container": "#dce9ff",
+                        "surface-bright": "#f4f6ff",
+                        "background": "#f4f6ff",
+                        "surface-tint": "#4647d3",
+                        "on-background": "#203044",
+                        "tertiary": "#815100",
+                        "on-primary-fixed": "#000000",
+                        "inverse-surface": "#000f21",
+                        "surface-dim": "#bdd6fc",
+                        "tertiary-fixed": "#f8a010",
+                        "secondary-fixed-dim": "#58e7ab",
+                        "on-secondary": "#c8ffe0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6ff;
+            color: #203044;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .desktop-header-glass {
+            backdrop-filter: blur(12px);
+            background: rgba(70, 71, 211, 0.95);
+        }
+
+        #description_product {
+            white-space: pre-line;
+        }
+
+        .clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-on-surface selection:bg-primary-container selection:text-on-primary-container pb-16 lg:pb-0">
+
+    <!-- Universal Header (Hidden on Mobile Search/Minimal View if needed, but per request: Shopee-style for Desktop) -->
+    <header class="hidden lg:block sticky top-0 z-[60] desktop-header-glass text-on-primary">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-8">
+            <div class="flex items-center gap-8">
+                <a class="text-2xl font-black font-headline tracking-tighter" href="#">Jualin</a>
+                <div class="relative w-[500px]">
+                    <input
+                        class="w-full h-10 px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-sm placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/30"
+                        placeholder="Search for premium footwear..." type="text" />
+                    <button
+                        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-white/20 rounded-md">
+                        <span class="material-symbols-outlined text-sm">search</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="text-sm font-bold">Cart</span>
+                </button>
+                <div class="h-6 w-px bg-white/20"></div>
+                <div id="authMenu">
+                    <button class="text-sm font-bold hover:opacity-80 transition-opacity">Login</button>
+                    <button
+                        class="px-4 py-2 bg-white text-primary rounded-lg text-sm font-bold hover:bg-opacity-90 transition-all">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Minimal Nav -->
+    <nav class="lg:hidden fixed top-0 w-full z-50 glass flex justify-between items-center px-6 py-4">
+        <div class="flex items-center gap-4">
+            <button id="page_back"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+        </div>
+        <div class="flex items-center gap-3">
+            <button
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface">
+                <span class="material-symbols-outlined">share</span>
+            </button>
+            <button
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </button>
+            <button
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface">
+                <span class="material-symbols-outlined">more_vert</span>
+            </button>
+        </div>
+    </nav>
+    <main class="mt-20 lg:mt-0 lg:max-w-7xl lg:mx-auto lg:px-6 lg:py-12 pb-32">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-12 ">
+            <div class="lg:col-span-5 xl:col-span-6">
+                <div class="sticky top-0 lg:top-24">
+
+                    <div class="flex gap-4">
+
+                        <!-- THUMB (KIRI) -->
+                        <div id="thumbnailGallery" class="hidden lg:flex flex-col gap-3 w-20">
+                        </div>
+
+                        <!-- SLIDER (KANAN) -->
+                        <section
+                            class="relative flex-1 aspect-square bg-white lg:rounded-2xl lg:shadow-md overflow-hidden">
+
+                            <div id="productGallery"
+                                class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full">
+                            </div>
+
+                            <!-- DOT -->
+                            <div id="dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Right Side: Product Details -->
+            <div class="lg:col-span-7 xl:col-span-6 flex flex-col gap-4">
+                <!-- Product Core Info -->
+                <section class="bg-surface-container-lowest px-6 py-8 lg:rounded-2xl lg:shadow-sm">
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-2">
+                            <span
+                                class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold tracking-wider uppercase rounded-full">New
+                                Arrival</span>
+                            <span
+                                class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold tracking-wider uppercase rounded-full">Free
+                                Shipping</span>
+                        </div>
+                        <h1 id="product_name"
+                            class="text-2xl lg:text-3xl font-extrabold font-headline leading-tight tracking-tight text-on-surface">
+                        </h1>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span id="price_real"
+                                class="text-xl lg:text-2xl font-bold text-primary font-headline">-</span>
+
+                            <span id="price_discount" class="text-gray-400 line-through text-sm"></span>
+
+                            <span id="discount_percen" class="text-secondary font-semibold text-xs lg:text-sm"></span>
+                        </div>
+                        <div class="flex items-center gap-4 mt-2">
+                            <div class="flex items-center text-tertiary">
+                                <div id="store_stars" class="flex"></div>
+                                <span id="rating_product_1"
+                                    class="ml-1 text-sm lg:text-base font-semibold text-on-surface">0.0</span>
+                            </div>
+                            <span class="h-1 w-1 bg-outline-variant rounded-full"></span>
+                            <span id="span_sold" class="text-sm text-on-surface-variant">0 Sold</span>
+                            <span class="h-1 w-1 bg-outline-variant rounded-full"></span>
+                            <span id="product_review" class="text-sm text-on-surface-variant">0 Reviews</span>
+                        </div>
+                    </div>
+                </section>
+                <!-- Shop Profile Section -->
+                <section
+                    class="px-6 py-6 bg-surface-container-lowest flex items-center justify-between lg:rounded-2xl lg:shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <img id="toko_profile" class="w-12 h-12 rounded-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnwPJu9BcujsavlaPMaJ1-rfKBObf9CK8dJpFhW023AAo-L-Zsv_A2yD1sV7WRb05Ol96T8KwjDFevoc3YCp-9Oeu3xCgLqZODNIVHxyIMUKY-iCC-P_OuKJaXtNMaNFEPyNSSbyrrYpDvMG7dWzWgBResFqkKIQKjee1WA6MVNPZ6diqXKVJ8NtHHhDPGn9Mts7TXsDHzn-eySjc24cq6dexopeMhrCTKXuVKvhAFjS4wTcjaP5p3y1XFQxowyR4QDZzNta4aIb_6" />
+                            <div
+                                class="absolute -bottom-1 -right-1 w-5 h-5 bg-secondary-container border-2 border-surface-container-lowest rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[12px] text-on-secondary-container"
+                                    style="font-variation-settings: 'FILL' 1;">verified</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 id="toko_name" class="font-bold font-headline text-on-surface">-</h3>
+                            <p class="text-xs text-on-surface-variant">Active 5 mins ago | Singapore</p>
+                        </div>
+                    </div>
+                    <button
+                        class="px-5 py-2 rounded-xl border border-primary text-primary font-bold text-xs hover:bg-primary hover:text-on-primary transition-all">
+                        View Shop
+                    </button>
+                </section>
+                <!-- Variations & Specs -->
+                <section class="bg-surface-container-lowest px-6 py-8 lg:rounded-2xl lg:shadow-sm">
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-bold font-headline text-on-surface">Select Size (EU)</h4>
+                                <button class="text-primary text-xs font-bold hover:underline">Size Guide</button>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <button
+                                    class="px-4 py-2.5 rounded-xl bg-primary text-on-primary font-bold text-sm shadow-lg shadow-primary/20">40</button>
+                                <button
+                                    class="px-4 py-2.5 rounded-xl bg-surface-container text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">41</button>
+                                <button
+                                    class="px-4 py-2.5 rounded-xl bg-surface-container text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">42</button>
+                                <button
+                                    class="px-4 py-2.5 rounded-xl bg-surface-container text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">43</button>
+                                <button
+                                    class="px-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant font-medium text-sm opacity-50 cursor-not-allowed">44</button>
+                            </div>
+                        </div>
+                        <!-- Desktop Actions (Add to Cart / Buy Now visible in layout) -->
+                        <div class="hidden lg:flex gap-4 pt-4">
+                            <button
+                                class="flex-1 py-4 px-6 rounded-2xl bg-surface-container-highest text-primary font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/10 transition-colors">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                                Add to Cart
+                            </button>
+                            <button
+                                class="flex-[1.5] py-4 px-6 rounded-2xl bg-primary text-on-primary font-bold text-sm shadow-lg shadow-primary/30 hover:bg-primary-dim transition-colors btn-payment">
+                                Buy Now
+                            </button>
+                        </div>
+                        <div class="pt-6 border-t border-surface-container">
+                            <h4 class="font-bold font-headline text-on-surface mb-4">Product Specifications</h4>
+                            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                                <div>
+                                    <p
+                                        class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">
+                                        Brand</p>
+                                    <p id="brand_name" class="text-sm font-medium text-on-surface">Tidak ada</p>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">
+                                        Stock</p>
+                                    <p id="stock" class="text-sm font-medium text-on-surface">0</p>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">
+                                        Sole Type</p>
+                                    <p class="text-sm font-medium text-on-surface">Hyper-Grip Rubber</p>
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">
+                                        Weight</p>
+                                    <p id="weight" class="text-sm font-medium text-on-surface"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Product Description / Editorial Notes -->
+                <section class="bg-surface-container-lowest px-6 py-8 lg:rounded-2xl lg:shadow-sm">
+                    <h4 class="font-bold font-headline text-on-surface mb-4">Editorial Notes</h4>
+                    <div id="description_product"
+                        class="prose prose-sm text-on-surface-variant leading-relaxed space-y-4 clamp-3">
+                    </div>
+                    <button id="read_detail"
+                        class="w-full mt-6 py-4 flex items-center justify-center gap-2 text-primary font-bold border-y lg:border border-surface-container lg:rounded-xl lg:hover:bg-primary/5 transition-colors">
+                        Read Detailed Specifications <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                </section>
+                <!-- Customer Reviews -->
+                <section class="bg-surface-container-lowest px-6 py-8 lg:rounded-2xl lg:shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h4 class="font-bold font-headline text-on-surface">Customer Reviews</h4>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span id="rating_count" class="text-2xl font-bold text-on-surface">0.0</span>
+                                <div class="flex items-center text-tertiary" id="rating_stars"></div>
+                            </div>
+                        </div>
+                        <button class="text-primary font-bold text-sm hover:underline">View All</button>
+                    </div>
+                    <div id="reviews_container" class="flex flex-col gap-6">
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- Sticky Bottom Action Bar (Mobile Only) -->
+    <footer
+        class="lg:hidden fixed bottom-0 w-full glass z-50 px-4 py-4 safe-area-bottom shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <div class="flex items-center gap-3 max-w-lg mx-auto">
+            <div class="flex items-center gap-1">
+                <button class="flex flex-col items-center justify-center w-12 h-12 text-primary">
+                    <span class="material-symbols-outlined">chat</span>
+                    <span class="text-[9px] font-bold mt-0.5">Chat</span>
+                </button>
+                <div class="w-px h-8 bg-surface-container-highest mx-1"></div>
+            </div>
+            <div class="flex-1 flex gap-2">
+                <button
+                    class="flex-1 py-3.5 px-2 rounded-2xl bg-surface-container-highest text-primary font-bold text-xs flex items-center justify-center gap-2 active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                    Add to Cart
+                </button>
+                <button
+                    class="flex-[1.2] py-3.5 px-2 rounded-2xl bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold text-xs shadow-lg shadow-primary/30 active:scale-95 transition-transform btn-payment">
+                    Buy Now
+                </button>
+            </div>
+        </div>
+    </footer>
+    <!-- Desktop Footer -->
+    <footer class="hidden lg:block bg-surface-container-lowest border-t border-surface-container py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-4 gap-8">
+            <div class="col-span-1">
+                <h5 class="text-lg font-black font-headline text-primary mb-6">Jualin</h5>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Defining the future of performance footwear
+                    with minimalist elegance and sustainable craftsmanship.</p>
+            </div>
+            <div>
+                <h6 class="font-bold text-sm text-on-surface mb-6">Customer Service</h6>
+                <ul class="space-y-4 text-sm text-on-surface-variant">
+                    <li><a class="hover:text-primary" href="#">Help Centre</a></li>
+                    <li><a class="hover:text-primary" href="#">Returns &amp; Refunds</a></li>
+                    <li><a class="hover:text-primary" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="font-bold text-sm text-on-surface mb-6">About Jualin</h6>
+                <ul class="space-y-4 text-sm text-on-surface-variant">
+                    <li><a class="hover:text-primary" href="#">Our Story</a></li>
+                    <li><a class="hover:text-primary" href="#">Sustainability</a></li>
+                    <li><a class="hover:text-primary" href="#">Store Locations</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="font-bold text-sm text-on-surface mb-6">Newsletter</h6>
+                <div class="flex gap-2">
+                    <input
+                        class="flex-1 h-10 px-4 bg-surface-container border-none rounded-lg text-sm focus:ring-1 focus:ring-primary"
+                        placeholder="Email address" type="email" />
+                    <button class="h-10 px-4 bg-primary text-on-primary rounded-lg text-sm font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://shop.chaerul.xyz/js/rating.js"></script>
+    <script src="https://shop.chaerul.xyz/js/product.js"></script>
+    <script src="https://shop.chaerul.xyz/js/script.js"></script>
+    <script>
+        function loadReviews(productId) {
+            const $container = $('#reviews_container');
+
+            // loading state
+            $container.html(`<p class="text-sm text-gray-400">Loading...</p>`);
+
+            $.ajax({
+                url: `/api/products/${productId}`,
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    renderReviews(res.reviews);
+                },
+                error: function (err) {
+                    console.error(err);
+                    $container.html(`<p class="text-sm text-red-500">Gagal load review</p>`);
+                }
+            });
+        }
+
+        // ========================
+        // RENDER REVIEWS
+        // ========================
+        function renderReviews(reviews = []) {
+            const $container = $('#reviews_container');
+
+            $container.empty();
+
+            if (!reviews.length) {
+                $container.html(`<p class="text-sm text-gray-400">Belum ada review</p>`);
+                return;
+            }
+
+            let html = '';
+
+            reviews.forEach(r => {
+                const initials = "U" + r.user_id;
+                const ratingStars = generateStars(r.rating);
+                const date = timeAgo(r.created_at);
+
+                html += `
+        <div class="p-5 rounded-2xl bg-surface-container-low">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs">
+                        ${initials}
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-on-surface">User ${r.user_id}</p>
+                        <div class="flex text-tertiary scale-75 origin-left -mt-1">
+                            ${ratingStars}
+                        </div>
+                    </div>
+                </div>
+                <span class="text-[10px] text-on-surface-variant font-medium">${date}</span>
+            </div>
+
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+                ${r.comment}
+            </p>
+        </div>
+        `;
+            });
+
+            $container.html(html);
+        }
+
+        // ========================
+        // STARS
+        // ========================
+        function generateStars(rating) {
+            let stars = '';
+
+            for (let i = 1; i <= 5; i++) {
+                stars += `
+        <span class="material-symbols-outlined text-xs"
+            style="font-variation-settings: '${i <= rating ? "'FILL' 1" : "'FILL' 0"}';">
+            star
+        </span>
+        `;
+            }
+
+            return stars;
+        }
+
+        // ========================
+        // TIME AGO
+        // ========================
+        function timeAgo(date) {
+            const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+
+            const intervals = [
+                { label: 'tahun', seconds: 31536000 },
+                { label: 'bulan', seconds: 2592000 },
+                { label: 'hari', seconds: 86400 },
+                { label: 'jam', seconds: 3600 },
+                { label: 'menit', seconds: 60 }
+            ];
+
+            for (let i of intervals) {
+                const count = Math.floor(seconds / i.seconds);
+                if (count > 0) return `${count} ${i.label} lalu`;
+            }
+
+            return 'baru saja';
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+        loadReviews(productId);
+    </script>
+    <script>
+        async function loadAuthMenu() {
+            const menu = document.getElementById('authMenu');
+
+            try {
+                const res = await fetch('/api/users/me', {
+                    credentials: 'include'
+                });
+
+                if (!res.ok) throw new Error();
+
+                const user = await res.json();
+
+                menu.innerHTML = `
+            <div class="flex items-center gap-3">
+                
+                <span class="material-symbols-outlined text-white text-2xl"
+                    style="font-variation-settings: 'FILL' 1;">
+                    account_circle
+                </span>
+
+                <span class="text-sm font-semibold">${user.username}</span>
+
+                <button id="logoutBtn" 
+                    class="flex items-center gap-1 text-sm font-bold text-red-400 hover:opacity-80">
+                    
+                    <span class="material-symbols-outlined text-base">
+                        logout
+                    </span>
+
+                    Logout
+                </button>
+            </div>
+        `;
+
+                document.getElementById('logoutBtn').addEventListener('click', async () => {
+                    await fetch('/api/users/logout', {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+
+                    location.reload();
+                });
+
+            } catch (err) {
+                menu.innerHTML = `
+            <div class="flex items-center gap-3">
+                
+                <a href="/login" class="flex items-center gap-1 text-sm font-bold hover:opacity-80">
+                    <span class="material-symbols-outlined text-base">
+                        login
+                    </span>
+                    Login
+                </a>
+
+                <a href="/register" 
+                    class="flex items-center gap-1 px-4 py-2 bg-white text-primary rounded-lg text-sm font-bold hover:bg-opacity-90 transition-all">
+                    
+                    <span class="material-symbols-outlined text-base">
+                        person_add
+                    </span>
+
+                    Sign Up
+                </a>
+            </div>
+        `;
+            }
+        }
+
+        loadAuthMenu();
+    </script>
+
+</body>
+
+</html>

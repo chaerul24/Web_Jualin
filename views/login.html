@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login | Atrium Marketplace</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f4f6ff",
+                        "on-tertiary-container": "#4a2c00",
+                        "surface-container-highest": "#c9deff",
+                        "on-primary": "#f4f1ff",
+                        "inverse-primary": "#8083ff",
+                        "error-container": "#f74b6d",
+                        "surface-dim": "#bdd6fc",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-high": "#d2e4ff",
+                        "primary-fixed": "#9396ff",
+                        "secondary-fixed": "#69f6b8",
+                        "outline-variant": "#9eaec7",
+                        "tertiary": "#815100",
+                        "on-secondary-container": "#005a3c",
+                        "tertiary-container": "#f8a010",
+                        "on-error": "#ffefef",
+                        "on-tertiary": "#fff0e3",
+                        "on-secondary-fixed-variant": "#006544",
+                        "on-tertiary-fixed-variant": "#563400",
+                        "secondary-container": "#69f6b8",
+                        "on-surface": "#203044",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "on-primary-container": "#0a0081",
+                        "secondary": "#006947",
+                        "primary-dim": "#3939c7",
+                        "on-surface-variant": "#4d5d73",
+                        "inverse-on-surface": "#8e9eb7",
+                        "error-dim": "#a70138",
+                        "on-secondary": "#c8ffe0",
+                        "surface-container-low": "#eaf1ff",
+                        "surface-tint": "#4647d3",
+                        "tertiary-fixed": "#f8a010",
+                        "tertiary-fixed-dim": "#e79400",
+                        "primary-container": "#9396ff",
+                        "secondary-dim": "#005c3d",
+                        "primary": "#4647d3",
+                        "secondary-fixed-dim": "#58e7ab",
+                        "on-secondary-fixed": "#00452d",
+                        "on-background": "#203044",
+                        "surface": "#f4f6ff",
+                        "tertiary-dim": "#714600",
+                        "inverse-surface": "#000f21",
+                        "on-error-container": "#510017",
+                        "outline": "#68788f",
+                        "background": "#f4f6ff",
+                        "surface-container": "#dce9ff",
+                        "primary-fixed-dim": "#8387ff",
+                        "surface-variant": "#c9deff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#b41340"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 40px 80px -20px rgba(32, 48, 68, 0.08);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface-bright min-h-screen flex items-center justify-center p-6 selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Suppressed Shell Logic: Navigation is hidden for transactional login flow -->
+    <main
+        class="w-full max-w-[1200px] grid md:grid-cols-2 bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow border border-outline-variant/10">
+        <!-- Brand Visual Side (Desktop only) -->
+        <div class="hidden md:flex flex-col justify-between p-12 bg-primary relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dim opacity-90"></div>
+            <!-- Decorative Grain / Texture -->
+            <div class="absolute inset-0 opacity-20 pointer-events-none"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZ6m6tVNB2_eHFPNuQrvLE2g55R306T5JdxNkJ8pRwYlAqJn-UBaZ5RHhTbPMJ3qqhD2sgqroLzfX17sXInRsizXDqO8OmKyMLlkd4Y9nqux5sCAVKYJdZqHwPjCr5QjXvkqD6wIo6r8i0R6NJozi7IL12SEjTbSwK--kk70BN528y6MqjShCleOrQeDAhD4Vz_S2tKGaqSBiHwU8dUd_Nu_xE77de8NxOdqskH-VuZZ5o5TpVsFYPIyLAVcYh7nro9ZEH-GtNDVzU');">
+            </div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-12">
+                    <span class="material-symbols-outlined text-on-primary text-3xl"
+                        data-icon="dashboard">dashboard</span>
+                    <span class="text-on-primary text-2xl font-bold tracking-tighter">Atrium Marketplace</span>
+                </div>
+                <h1 class="text-on-primary text-5xl font-extrabold tracking-tighter leading-[1.1] mb-6">
+                    Curate your space <br />with intentionality.
+                </h1>
+                <p class="text-on-primary/80 text-lg max-w-md font-body leading-relaxed">
+                    Join the world's most curated editorial marketplace where every item is a masterpiece of design.
+                </p>
+            </div>
+            <div class="relative z-10">
+                <div class="flex -space-x-4 mb-4">
+                    <img alt="" class="w-10 h-10 rounded-full border-2 border-primary"
+                        data-alt="portrait of a creative professional man in a minimalist studio setting with soft natural light"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkGQO0v_vuZGiBlhcAwHAFvvVGbjyuFZuTu8u47CClW8n8_wRPc-hfbJAyP6J1B9r69Dbo9c3Q9_7EeiEx4utqpwfe6teLhuWCVpshwmdtSVlcblZUkdzj4PwdBI6MlqT0GsShgrmhukI6gcA3wHNKtXlW9Vz0NiwqIKh0eMC1eHYMrM2D6whK0jLGajIRfpYgVTgDnIeX0o8_JjF2wrZI8D6-wvmHX5Y_Fs2ST0-dG6va48H-nrDqtKLXmMPr6bIHWf9qyy7yubkH" />
+                    <img alt="" class="w-10 h-10 rounded-full border-2 border-primary"
+                        data-alt="closeup of a stylish woman smiling in a bright architectural space with blue skies in background"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjJ6ELTnuQtay-M3LqtA75qFU478stpxPMtKyhtj9BTnTbjIizbDTI-dcqqzlVC4Kr8hu33vS9Rii2ry9czjKW54aOhmZgw6YFvDgzy-wPLQiKcikuJtN5BdvoCrT32hiPagorpTisSiaLwOPKtcBqZhL86U0_x1_ZDsDf-RIQv3PTeZim_scP9h2rXqKTNmLMRa58rsCzutP-qWOVY9B7U4virTEMeYCugz-NyhGMjyV3TTUFD0NvqqdUIgPeHCCwLow0z78w4yNa" />
+                    <img alt="" class="w-10 h-10 rounded-full border-2 border-primary"
+                        data-alt="profile of a young designer working in a plant filled modern office with high key lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUSptwDrAbnAEjH71VwnSy4ZsFCI-lTSZWqH63eys30RHb6EzxeixhfpnutG5U4v1kAkZfL2PkGmKYzBiONcF7w6vocOXIV5gUyXDo2kaLJWSyDdj4XQkZBAFpcthLZVHKYsiePsGsKl799Y5bL7ZfFVvQ_rhGzK4B4eTEmE1nB36cO3_A0TWKwfF8DISs5ofZJjnpxpzhOLtRoq2K_KJrq2a-JiUkBk9WmGhZNBm4tAkfy7FiRXianVo6BkHAGESnu5Qhzxhxveb0" />
+                </div>
+                <p class="text-on-primary/70 text-sm font-medium tracking-wide uppercase">Trusted by 20k+ curators</p>
+            </div>
+            <!-- Background Image Integration -->
+            <div class="absolute bottom-[-10%] right-[-10%] w-3/4 h-3/4 opacity-40 mix-blend-overlay">
+                <img alt="" class="w-full h-full object-cover rounded-full"
+                    data-alt="minimalist abstract 3d geometric shapes in soft blue and white hues with clean shadows and elegant lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBSng8N59382i-X274j0zKQCCUQivE5F5dahDXRpeoYYGrReVZvUb2x8BjcnCcTHVooRI-vSYZoS5J_UmByd-I7XBMn2zuEeMwneAVRwIJhHM1LG80UiuW8q4FzhMUoWeX1hB9k7TsGxHiC-iyerccj0qbOZ2-s05D4mBujyaZJ-RMtJTKPjRm64539JZ-4wLq3-mGjd_YvU8Og4cQP-9KRWR1Md8jVZvUSBzpmKQBKEKxmMet4T0W_rTd5EfxKSDG_S_Q6rESoae" />
+            </div>
+        </div>
+        <!-- Login Form Side -->
+        <div class="flex flex-col justify-center p-8 md:p-16 lg:p-24 bg-surface-container-lowest">
+            <div class="max-w-md mx-auto w-full">
+                <div class="mb-10">
+                    <h2 class="text-on-surface text-3xl font-extrabold tracking-tight mb-2">Welcome Back</h2>
+                    <p class="text-on-surface-variant font-body">Please enter your details to access your atrium.</p>
+                </div>
+                <!-- Social Logins -->
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 group">
+                        <img alt="Google" class="w-5 h-5"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsGiROAJxH8BSi_FleqnUPLzGt7OC7wZ-JUYpEjnyc6J8wrcaGF-nUYiSAUXAyT7s90VjqoxbaMlbM31DCYddyk3hSWsrFtfNP1bRKpolMUemvh8IByBiH-2gnmgC-wOfIs9CRJNWjEDHVRPH5YP0aR8Iy3DlqpYG1EsJKryyE6GKzK-B4w-mdMc6_wnf6iPDm9AHFo40e4iCdp56uIVd9e0pQnYOLzbayZFk-41bUMfWul7ugkU1nz1_NvPj24pdsk1uOHu76yuGz" />
+                        <span class="text-on-surface text-sm font-semibold">Google</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 group">
+                        <img alt="Apple" class="w-5 h-5"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsi6bR7-WJ0oBiLdXmEUUWk26d0JxZ-EY33-RNBvFFmw1jUURpkoABmy6KnB_cSX7grYiXg6zhEOlgG_Z77g6qenP3GJbkiuXbGuUHPko74Z55kB0LA6-ZyQaGskS4wLOU7Dzl71Aj5HffyYlkCZ207NnLB1xVr48M1Ok0aUcWWFKZ9fboTaLedsE8ElLEq84BJg4B25XQ5Htw-Iv9owK0vsqdgTeQ0UPawCOJdEGKO-rpiz08WqLSQ4RPTWruQUYsp4V4_7ZLhLx8" />
+                        <span class="text-on-surface text-sm font-semibold">Apple</span>
+                    </button>
+                </div>
+                <div class="relative flex items-center mb-8">
+                    <div class="flex-grow border-t border-outline-variant/20"></div>
+                    <span class="flex-shrink mx-4 text-xs font-bold uppercase tracking-widest text-outline">or continue
+                        with</span>
+                    <div class="flex-grow border-t border-outline-variant/20"></div>
+                </div>
+                <form action="/login" method="POST" class="space-y-6">
+                    <div>
+                        <label
+                            class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-1"
+                            for="email">Email Address</label>
+                        <input name="email"
+                            class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none placeholder:text-outline/60 text-on-surface font-body"
+                            id="email" placeholder="curator@atrium.com" type="email" />
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2 ml-1">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                                for="password">Password</label>
+                            <a class="text-xs font-bold text-primary hover:text-primary-dim transition-colors"
+                                href="#">Forgot password?</a>
+                        </div>
+                        <input
+                            name="password"
+                            class="w-full px-5 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none placeholder:text-outline/60 text-on-surface font-body"
+                            id="password" placeholder="••••••••" type="password" />
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative flex items-center">
+                            <input name="terms"
+                                class="w-5 h-5 rounded-md border-outline-variant/30 text-primary focus:ring-primary/20 bg-surface-container-low"
+                                id="remember" type="checkbox" />
+                        </div>
+                        <label class="text-sm font-medium text-on-surface-variant" for="remember">Remember me for 30
+                            days</label>
+                    </div>
+                    <button
+                        class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-300"
+                        type="submit">
+                        Sign In to Atrium
+                    </button>
+                </form>
+                <p class="mt-10 text-center text-on-surface-variant text-sm">
+                    New to the Marketplace?
+                    <a class="text-primary font-bold hover:underline underline-offset-4" href="/register">Create account</a>
+                </p>
+            </div>
+        </div>
+    </main>
+    <!-- Suppressed Footer Logic: Footer is excluded for transactional focus -->
+    <script>
+        const notyf = new Notyf();
+
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+
+        if (error === 'user') {
+            notyf.error('User tidak ditemukan');
+        }
+        if (error === 'password') {
+            notyf.error('Password salah');
+        }
+        if (error === 'server') {
+            notyf.error('Terjadi error server');
+        }
+
+        if (error === 'empty') {
+            notyf.error('Email dan password wajib diisi');
+        }
+
+        // success (optional)
+        const success = params.get('success');
+        if (success) {
+            notyf.success('Login berhasil!');
+        }
+    </script>
+</body>
+
+</html>

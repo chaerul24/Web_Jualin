@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Jualin Marketplace | Shop the Best</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#58e7ab",
+                        "inverse-on-surface": "#8e9eb7",
+                        "secondary-dim": "#005c3d",
+                        "surface-container-low": "#eaf1ff",
+                        "error-dim": "#a70138",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#d2e4ff",
+                        "on-surface": "#203044",
+                        "on-primary-container": "#0a0081",
+                        "surface-container": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#563400",
+                        "outline-variant": "#9eaec7",
+                        "on-error-container": "#510017",
+                        "on-surface-variant": "#4d5d73",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "secondary-fixed": "#69f6b8",
+                        "on-tertiary-container": "#4a2c00",
+                        "on-background": "#203044",
+                        "on-secondary-container": "#005a3c",
+                        "on-primary": "#f4f1ff",
+                        "on-tertiary": "#fff0e3",
+                        "surface-bright": "#f4f6ff",
+                        "secondary-container": "#69f6b8",
+                        "on-secondary-fixed": "#00452d",
+                        "outline": "#68788f",
+                        "primary": "#4647d3",
+                        "error-container": "#f74b6d",
+                        "inverse-surface": "#000f21",
+                        "surface": "#f4f6ff",
+                        "surface-dim": "#bdd6fc",
+                        "primary-dim": "#3939c7",
+                        "tertiary-container": "#f8a010",
+                        "on-secondary": "#c8ffe0",
+                        "surface-tint": "#4647d3",
+                        "secondary": "#006947",
+                        "tertiary-dim": "#714600",
+                        "error": "#b41340",
+                        "background": "#f4f6ff",
+                        "surface-container-highest": "#c9deff",
+                        "primary-container": "#9396ff",
+                        "tertiary": "#815100",
+                        "on-secondary-fixed-variant": "#006544",
+                        "inverse-primary": "#8083ff",
+                        "primary-fixed": "#9396ff",
+                        "tertiary-fixed": "#f8a010",
+                        "surface-variant": "#c9deff",
+                        "tertiary-fixed-dim": "#e79400",
+                        "primary-fixed-dim": "#8387ff",
+                        "on-primary-fixed": "#000000",
+                        "on-error": "#ffefef"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .product-card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        @media (min-width: 1024px) {
+            .product-card-hover:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        #header_bar {
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-hide {
+            transform: translateY(-100%);
+        }
+
+        .header-show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 text-on-surface selection:bg-primary-container selection:text-on-primary-container pb-16 lg:pb-0">
+    <!-- Header -->
+    <header id="header_bar" class="bg-primary text-white sticky top-0 z-50 shadow-md">
+        <!-- Top Utility Bar (Desktop Only) -->
+        <div class="hidden lg:block max-w-[1200px] mx-auto px-4 py-1.5 text-[12px] opacity-90 border-b border-white/10">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <a class="hover:text-white" href="#">Seller Centre</a>
+                    <div class="h-3 w-[1px] bg-white/20"></div>
+                    <a class="hover:text-white" href="#">Download</a>
+                    <div class="h-3 w-[1px] bg-white/20"></div>
+                    <div class="flex items-center gap-2">
+                        <span>Follow us on</span>
+                        <span
+                            class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white">facebook</span>
+                        <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white">share</span>
+                    </div>
+                </div>
+                <div id="authArea" class="flex items-center gap-5">
+                    <a class="flex items-center gap-1.5 hover:text-white" href="#">
+                        <span class="material-symbols-outlined text-[16px]">notifications</span>Notifications
+                    </a>
+                    <a class="flex items-center gap-1.5 hover:text-white" href="#">
+                        <span class="material-symbols-outlined text-[16px]">help</span>Help
+                    </a>
+
+                    <div id="authMenu" class="flex items-center gap-3 ml-2">
+                        <a class="font-semibold hover:text-white" href="/login">Login</a>
+                        <div class="h-3 w-[1px] bg-white/20"></div>
+                        <a class="font-semibold hover:text-white" href="/register">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Bar -->
+        <div class="max-w-[1200px] mx-auto px-4 py-2 lg:py-4 flex flex-col lg:flex-row items-center gap-2 lg:gap-12">
+            <div class="flex items-center justify-between w-full lg:w-auto">
+                <a class="text-2xl lg:text-3xl font-extrabold tracking-tighter brand-font shrink-0" href="#">Jualin</a>
+                <!-- Mobile Header Right -->
+                <div class="flex items-center gap-4 lg:hidden">
+                    <span class="material-symbols-outlined text-[24px]">chat</span>
+                    <div class="relative">
+                        <span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+                        <span
+                            class="absolute -top-1 -right-1.5 bg-white text-primary text-[8px] font-bold px-1 rounded-full border border-primary">3</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Search Area -->
+            <div class="w-full lg:flex-1">
+                <div class="bg-white rounded-md p-0.5 lg:p-1 flex shadow-sm items-center">
+                    <input
+                        class="flex-1 border-none focus:ring-0 text-on-surface text-sm px-3 lg:px-4 placeholder:text-gray-400"
+                        placeholder="Sign up and get 100% off" type="text" />
+                    <button
+                        class="bg-primary-dim px-4 lg:px-7 py-1.5 lg:py-2 rounded-[4px] flex items-center justify-center hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined text-white text-[18px] lg:text-[20px]">search</span>
+                    </button>
+                </div>
+                <!-- Trending Search (Desktop Only) -->
+                <div class="hidden lg:flex gap-4 mt-2 text-[12px] opacity-80 overflow-hidden whitespace-nowrap px-1">
+                    <a class="hover:text-white" href="#">Wireless Earbuds</a>
+                    <a class="hover:text-white" href="#">Mechanical Keyboard</a>
+                    <a class="hover:text-white" href="#">Ceramic Vase</a>
+                    <a class="hover:text-white" href="#">Luxury Blazer</a>
+                    <a class="hover:text-white" href="#">Smart Home</a>
+                </div>
+            </div>
+            <!-- Cart (Desktop Only) -->
+            <div class="hidden lg:flex relative group cursor-pointer px-4 items-center justify-center">
+                <span
+                    class="material-symbols-outlined text-[32px] opacity-90 group-hover:opacity-100 transition-opacity">shopping_cart</span>
+                <span
+                    class="absolute top-0 right-1.5 bg-white text-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-primary shadow-sm">3</span>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1200px] mx-auto px-0 lg:px-4 py-3 lg:py-6 space-y-4 lg:space-y-6">
+
+        <!-- Categories Grid -->
+        <section class="bg-white lg:rounded-sm lg:shadow-sm border-y lg:border border-black/5">
+            <div class="px-4 py-3 lg:p-4 border-b border-gray-100">
+                <h2 class="text-gray-400 uppercase text-[11px] lg:text-[13px] font-bold tracking-widest">Categories</h2>
+            </div>
+            <div class="grid grid-cols-5 lg:grid-cols-10">
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">devices</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Electronics</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">apparel</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Fashion</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">home</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Home</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">spa</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Beauty</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b border-gray-50 transition-colors lg:border-r"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">fitness_center</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Sports</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b lg:border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">toys</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Toys</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b lg:border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">auto_stories</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Books</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b lg:border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">restaurant</span>
+                    </div>
+                    <span
+                        class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">F&amp;B</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-r border-b lg:border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">pets</span>
+                    </div>
+                    <span class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">Pet
+                        Care</span>
+                </a>
+                <a class="p-2 lg:p-4 flex flex-col items-center gap-2 lg:gap-3 hover:bg-slate-50 border-b border-gray-50 transition-colors"
+                    href="#">
+                    <div
+                        class="w-10 h-10 lg:w-12 lg:h-12 bg-surface-container-low rounded-xl lg:rounded-2xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-[20px] lg:text-[28px]">grid_view</span>
+                    </div>
+                    <span class="text-[10px] lg:text-[12px] text-center font-medium text-gray-700 leading-tight">See
+                        All</span>
+                </a>
+            </div>
+        </section>
+        <!-- Flash Sale Section -->
+        <!-- <section class="bg-white lg:rounded-sm lg:shadow-sm border-y lg:border border-black/5 overflow-hidden">
+            <div
+                class="p-4 flex items-center justify-between border-b border-gray-50 bg-gradient-to-r from-white to-slate-50">
+                <div class="flex items-center gap-3 lg:gap-6">
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-primary fill-1 text-xl lg:text-2xl">bolt</span>
+                        <h2 class="text-primary font-black text-lg lg:text-2xl italic uppercase tracking-tighter">Flash
+                            Sale</h2>
+                    </div>
+                    <div class="flex items-center gap-1 lg:gap-1.5 font-bold text-xs lg:text-sm">
+                        <span class="bg-on-surface text-white px-1.5 py-0.5 rounded-[3px]">02</span>
+                        <span class="text-on-surface">:</span>
+                        <span class="bg-on-surface text-white px-1.5 py-0.5 rounded-[3px]">45</span>
+                        <span class="text-on-surface">:</span>
+                        <span class="bg-on-surface text-white px-1.5 py-0.5 rounded-[3px]">18</span>
+                    </div>
+                </div>
+                <a class="text-primary text-[12px] lg:text-[13px] font-semibold flex items-center gap-0.5 hover:underline"
+                    href="#">
+                    See All <span class="material-symbols-outlined text-[16px] lg:text-[18px]">chevron_right</span>
+                </a>
+            </div>
+            Scrolling on mobile, Grid on desktop
+            <div class="p-4 overflow-x-auto hide-scrollbar">
+                <div class="flex lg:grid lg:grid-cols-6 gap-3 lg:gap-4 min-w-max lg:min-w-0">
+                    <div class="group cursor-pointer w-[140px] lg:w-auto shrink-0">
+                        <div
+                            class="aspect-square bg-slate-50 rounded-sm overflow-hidden relative border border-gray-100">
+                            <img class="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi1L2cW0fJxKK9w0ey51xi-YFIz4tosLrCMm46G99mTwNG6pTb5kN372gQzhnmsC4FCVGnU4eKjGBkdy7ayH9NXOLGVrNldeCC-YpshMSF8SlBsX1QMRYLm7raGEn7NZN8WAJ50qxKVZKrMEgpsZAU1NCHNJ0fG1g9zOC46KfQLcyMdY3i8gnZXRdKQZcGM2wwx6LhJHBa9xUCN1dmXaGBeOS3_V242B2V-9_UHmY65NCFPIVpx9Ti8ad1M3y8m3w9LrxWKKFRxv9S" />
+                            <div
+                                class="absolute top-0 right-0 bg-yellow-400 text-primary text-[9px] lg:text-[10px] font-extrabold px-1.5 py-0.5 lg:py-1 shadow-sm">
+                                50% OFF</div>
+                        </div>
+                        <div class="mt-2 lg:mt-3 text-center">
+                            <p class="text-primary font-bold text-base lg:text-lg">$92.50</p>
+                            <div
+                                class="mt-1.5 lg:mt-2 w-full h-3 lg:h-4 bg-primary/10 rounded-full relative overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full bg-primary w-[70%]"></div>
+                                <span
+                                    class="absolute inset-0 flex items-center justify-center text-[8px] lg:text-[10px] text-white font-bold uppercase drop-shadow-sm">70%
+                                    Sold</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group cursor-pointer w-[140px] lg:w-auto shrink-0">
+                        <div
+                            class="aspect-square bg-slate-50 rounded-sm overflow-hidden relative border border-gray-100">
+                            <img class="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1b49-nK_SZD9FNPR2E0hh6DMGghmJlousirH3Ek3IbhGk6xVHT1YEkXTBuZtMSpk19BC11RJqwgcsokHpNH6HZxyMhqgO1XsQvdoQQkBtm3nB_RVfhIFR24WslKTpCIhEk5GlbIbA2FfuWKVt79SiyTX4WltXR0DcAJp-s3DBBTEd2TqMUh-m_IV09v-l_XlsyJrck_M_0dmNAkTm9EqMLMW2wZQe01GcEA5ff9XFRz68ieLxD50scxSpRVGwbsM_cJzi95UnIfrb" />
+                            <div
+                                class="absolute top-0 right-0 bg-yellow-400 text-primary text-[9px] lg:text-[10px] font-extrabold px-1.5 py-0.5 lg:py-1 shadow-sm">
+                                20% OFF</div>
+                        </div>
+                        <div class="mt-2 lg:mt-3 text-center">
+                            <p class="text-primary font-bold text-base lg:text-lg">$360.00</p>
+                            <div
+                                class="mt-1.5 lg:mt-2 w-full h-3 lg:h-4 bg-primary/10 rounded-full relative overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full bg-primary w-[15%]"></div>
+                                <span
+                                    class="absolute inset-0 flex items-center justify-center text-[8px] lg:text-[10px] text-white font-bold uppercase drop-shadow-sm">15%
+                                    Sold</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer w-[140px] lg:w-auto shrink-0">
+                        <div
+                            class="aspect-square bg-slate-50 rounded-sm overflow-hidden relative border border-gray-100">
+                            <img class="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPCd_8c78mUP77gw9wrv4qIHo3DMnVVXlCGYJOGHQ9vlMV79Rfsh76gFOCnDnzuG6T6VzeWWTWnrAN7CsPCZQYeyBIFYeqKO7UuI1HWKpaiswZbcBpxKoR5AUGGQIpT2anH1EU2YdW32DisNdaO7Q-z3Yv6LzkiGQ9seV_itvqJa_NclCW8ZpBwy0XdTQG4tuDpu8k17Ik_Qj4K0raVlE1rpQ_Vj_gHj_fJlW8EW8pGAk3w9lWr40q8GpjvaSP4p27f9NioxS0E9zC" />
+                            <div
+                                class="absolute top-0 right-0 bg-yellow-400 text-primary text-[9px] lg:text-[10px] font-extrabold px-1.5 py-0.5 lg:py-1 shadow-sm">
+                                FLASH</div>
+                        </div>
+                        <div class="mt-2 lg:mt-3 text-center">
+                            <p class="text-primary font-bold text-base lg:text-lg">$999.00</p>
+                            <div
+                                class="mt-1.5 lg:mt-2 w-full h-3 lg:h-4 bg-primary/10 rounded-full relative overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full bg-primary w-[95%]"></div>
+                                <span
+                                    class="absolute inset-0 flex items-center justify-center text-[8px] lg:text-[10px] text-white font-bold uppercase drop-shadow-sm">Almost
+                                    Out</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex flex-col gap-2 relative bg-slate-50 items-center justify-center rounded-sm border border-dashed border-gray-200 w-[140px] lg:w-auto shrink-0 aspect-square">
+                        <span class="material-symbols-outlined text-gray-200 text-4xl lg:text-5xl">local_mall</span>
+                    </div>
+                    <div
+                        class="flex flex-col gap-2 relative bg-slate-50 items-center justify-center rounded-sm border border-dashed border-gray-200 w-[140px] lg:w-auto shrink-0 aspect-square">
+                        <span class="material-symbols-outlined text-gray-200 text-4xl lg:text-5xl">local_mall</span>
+                    </div>
+                    <div
+                        class="flex flex-col gap-2 relative bg-slate-50 items-center justify-center rounded-sm border border-dashed border-gray-200 w-[140px] lg:w-auto shrink-0 aspect-square">
+                        <span class="material-symbols-outlined text-gray-200 text-4xl lg:text-5xl">local_mall</span>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- Main Discovery Section -->
+        <section>
+            <div class="bg-white border-b border-primary/20 shadow-sm lg:rounded-t-sm overflow-x-auto hide-scrollbar">
+                <div class="flex min-w-max lg:min-w-0">
+                    <div
+                        class="flex-1 px-4 lg:px-0 py-3 lg:py-4 text-center text-primary font-bold border-b-[3px] lg:border-b-[4px] border-primary cursor-pointer hover:bg-slate-50 text-[13px] lg:text-[16px]">
+                        Daily Discover</div>
+                    <div
+                        class="flex-1 px-4 lg:px-0 py-3 lg:py-4 text-center text-gray-500 font-semibold border-b-[3px] lg:border-b-[4px] border-transparent hover:text-primary cursor-pointer hover:bg-slate-50 transition-colors text-[13px] lg:text-[16px]">
+                        Official Store</div>
+                    <div
+                        class="flex-1 px-4 lg:px-0 py-3 lg:py-4 text-center text-gray-500 font-semibold border-b-[3px] lg:border-b-[4px] border-transparent hover:text-primary cursor-pointer hover:bg-slate-50 transition-colors text-[13px] lg:text-[16px]">
+                        Best Sellers</div>
+                    <div
+                        class="flex-1 px-4 lg:px-0 py-3 lg:py-4 text-center text-gray-500 font-semibold border-b-[3px] lg:border-b-[4px] border-transparent hover:text-primary cursor-pointer hover:bg-slate-50 transition-colors text-[13px] lg:text-[16px]">
+                        Global Market</div>
+                </div>
+            </div>
+            <div id="productList" class="grid grid-cols-2 lg:grid-cols-6 gap-2 lg:gap-2 mt-2 lg:mt-4 px-2 lg:px-0">
+
+            </div>
+            <div class="mt-6 lg:mt-10 flex justify-center px-4">
+                <button
+                    class="w-full lg:w-auto lg:px-28 py-2.5 lg:py-3 bg-white border border-gray-200 text-gray-600 rounded-sm hover:bg-slate-50 transition-all shadow-sm font-semibold text-[13px] lg:text-sm active:scale-95">
+                    See More
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-10 lg:mt-20 pt-8 lg:pt-16 pb-20 lg:pb-12">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-10 lg:mb-16">
+                <div class="space-y-4 lg:space-y-5">
+                    <h4 class="text-[11px] lg:text-[13px] font-bold text-gray-800 uppercase tracking-wider">Customer
+                        Service</h4>
+                    <ul class="text-[12px] lg:text-[13px] text-gray-500 space-y-2 lg:space-y-3">
+                        <li><a class="hover:text-primary" href="#">Help Centre</a></li>
+                        <li><a class="hover:text-primary" href="#">Payment Methods</a></li>
+                        <li><a class="hover:text-primary" href="#">Track Order</a></li>
+                        <li><a class="hover:text-primary" href="#">Free Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4 lg:space-y-5">
+                    <h4 class="text-[11px] lg:text-[13px] font-bold text-gray-800 uppercase tracking-wider">About Jualin
+                    </h4>
+                    <ul class="text-[12px] lg:text-[13px] text-gray-500 space-y-2 lg:space-y-3">
+                        <li><a class="hover:text-primary" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary" href="#">Careers</a></li>
+                        <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary" href="#">Seller Centre</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 lg:col-span-1 space-y-4 lg:space-y-5">
+                    <h4 class="text-[11px] lg:text-[13px] font-bold text-gray-800 uppercase tracking-wider">Payment</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <div
+                            class="w-10 h-6 lg:w-12 lg:h-7 bg-white border border-gray-100 rounded-sm shadow-sm flex items-center justify-center text-[8px] lg:text-[10px] font-bold">
+                            VISA</div>
+                        <div
+                            class="w-10 h-6 lg:w-12 lg:h-7 bg-white border border-gray-100 rounded-sm shadow-sm flex items-center justify-center text-[8px] lg:text-[10px] font-bold">
+                            M-CARD</div>
+                        <div
+                            class="w-10 h-6 lg:w-12 lg:h-7 bg-white border border-gray-100 rounded-sm shadow-sm flex items-center justify-center text-[8px] lg:text-[10px] font-bold">
+                            PAY</div>
+                    </div>
+                </div>
+                <div class="space-y-4 lg:space-y-5">
+                    <h4 class="text-[11px] lg:text-[13px] font-bold text-gray-800 uppercase tracking-wider">Follow Us
+                    </h4>
+                    <ul class="text-[12px] lg:text-[13px] text-gray-500 space-y-2 lg:space-y-3">
+                        <li class="flex items-center gap-2 hover:text-primary cursor-pointer"><span
+                                class="material-symbols-outlined text-[18px]">facebook</span> Facebook</li>
+                        <li class="flex items-center gap-2 hover:text-primary cursor-pointer"><span
+                                class="material-symbols-outlined text-[18px]">share</span> Instagram</li>
+                    </ul>
+                </div>
+                <div class="space-y-4 lg:space-y-5">
+                    <h4 class="text-[11px] lg:text-[13px] font-bold text-gray-800 uppercase tracking-wider">App Download
+                    </h4>
+                    <div class="flex flex-col lg:flex-col gap-2">
+                        <button
+                            class="w-32 lg:w-36 h-9 lg:h-11 bg-on-surface text-white rounded-md flex items-center px-2 lg:px-3 gap-2 hover:opacity-90">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">apple</span>
+                            <div class="flex flex-col items-start leading-none">
+                                <span class="text-[7px] lg:text-[8px] uppercase">Download on</span>
+                                <span class="text-[10px] lg:text-[12px] font-bold">App Store</span>
+                            </div>
+                        </button>
+                        <button
+                            class="w-32 lg:w-36 h-9 lg:h-11 bg-on-surface text-white rounded-md flex items-center px-2 lg:px-3 gap-2 hover:opacity-90">
+                            <span class="material-symbols-outlined text-[20px] lg:text-[24px]">robot</span>
+                            <div class="flex flex-col items-start leading-none">
+                                <span class="text-[7px] lg:text-[8px] uppercase">Get it on</span>
+                                <span class="text-[10px] lg:text-[12px] font-bold">Play Store</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-6 lg:pt-8 border-t border-gray-100 flex flex-col lg:flex-row justify-between items-center gap-4 text-[11px] lg:text-[13px] text-gray-400">
+                <p>© 2024 Jualin Marketplace. All Rights Reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4 lg:gap-6 items-center">
+                    <span class="hover:text-primary cursor-pointer">Indonesia</span>
+                    <span class="hover:text-primary cursor-pointer">Singapore</span>
+                    <span class="hover:text-primary cursor-pointer">Thailand</span>
+                    <span class="hover:text-primary cursor-pointer">Malaysia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bottom Navigation Bar (Mobile Only) -->
+    <nav
+        class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 lg:hidden flex justify-around items-center h-14 z-[60] px-2 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+        <a class="flex flex-col items-center gap-0.5 text-primary" href="#">
+            <span class="material-symbols-outlined text-[24px] fill-1">home</span>
+            <span class="text-[10px] font-medium">Home</span>
+        </a>
+        <a class="flex flex-col items-center gap-0.5 text-gray-500" href="#">
+            <span class="material-symbols-outlined text-[24px]">local_mall</span>
+            <span class="text-[10px] font-medium">Mall</span>
+        </a>
+        <a class="flex flex-col items-center gap-0.5 text-gray-500" href="#">
+            <span class="material-symbols-outlined text-[24px]">videocam</span>
+            <span class="text-[10px] font-medium">Live</span>
+        </a>
+        <a class="flex flex-col items-center gap-0.5 text-gray-500" href="#">
+            <span class="material-symbols-outlined text-[24px]">notifications</span>
+            <span class="text-[10px] font-medium">Alerts</span>
+        </a>
+        <a id="profile_person" class="flex flex-col items-center gap-0.5 text-gray-500" href="#">
+            <span class="material-symbols-outlined text-[24px]">person</span>
+            <span class="text-[10px] font-medium">Profile</span>
+        </a>
+    </nav>
+    <script src="https://shop.chaerul.xyz/js/list_product.js"></script>
+    <script>
+        const header = document.getElementById('header_bar');
+
+        let lastScrollY = window.scrollY;
+        let timeout;
+
+        function handleScroll() {
+            // hanya jalan di mobile (< 768px)
+            if (window.innerWidth >= 768) return;
+
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY < 50) {
+                header.classList.remove('header-hide');
+                return;
+            }
+
+            if (currentScrollY > lastScrollY) {
+                header.classList.add('header-hide');
+            } else {
+                header.classList.remove('header-hide');
+            }
+
+            lastScrollY = currentScrollY;
+
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                header.classList.remove('header-hide');
+            }, 400);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+    <script>
+        
+        async function loadAuthMenu() {
+            try {
+                const res = await fetch('/api/users/me', {
+                    credentials: 'include'
+                });
+
+                if (!res.ok) throw new Error('Not logged in');
+
+                const user = await res.json();
+
+                document.getElementById('authMenu').innerHTML = `
+            <span class="font-semibold">Profile</span>
+            <div class="h-3 w-[1px] bg-white/20"></div>
+            <button id="logoutBtn" class="font-semibold hover:text-red-400">
+                Logout
+            </button>
+        `;
+
+                document.getElementById('logoutBtn').addEventListener('click', async () => {
+                    await fetch('/api/users/logout', {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+
+                    location.reload();
+                });
+
+            } catch (err) {
+                console.log('User belum login');
+            }
+        }
+
+        loadAuthMenu();
+    </script>
+</body>
+
+</html>
